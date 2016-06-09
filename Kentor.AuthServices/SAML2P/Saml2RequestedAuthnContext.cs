@@ -16,7 +16,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if(requestedAuthnContextElement == null)
             {
-                throw new ArgumentNullException(nameof(requestedAuthnContextElement));
+                throw new ArgumentNullException("requestedAuthnContextElement");
             }
             
             if(!string.IsNullOrEmpty(requestedAuthnContextElement.AuthnContextClassRef))
@@ -44,11 +44,11 @@ namespace Kentor.AuthServices.Saml2P
         /// <summary>
         /// Authentication context class reference.
         /// </summary>
-        public Uri ClassRef { get; }
+        public Uri ClassRef { get; private set; }
 
         /// <summary>
         /// Comparison method.
         /// </summary>
-        public AuthnContextComparisonType Comparison { get; }
+        public AuthnContextComparisonType Comparison { get; private set; }
     }
 }

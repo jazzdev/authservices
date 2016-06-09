@@ -72,7 +72,7 @@ namespace Kentor.AuthServices.WebSso
         /// </summary>
         public byte[] GetSerializedRequestState()
         {
-            return RequestState?.Serialize();
+          return RequestState==null?null:RequestState.Serialize();
         }
 
         /// <summary>

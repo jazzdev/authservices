@@ -8,7 +8,7 @@ namespace Kentor.AuthServices.Configuration
     /// </summary>
     public class ArtifactResolutionServiceElement : ConfigurationElement
     {
-        const string index = nameof(index);
+        const string index = "index";
         /// <summary>
         /// Index of the artifact resolution service endpoint.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string location = nameof(location);
+        const string location = "location";
         /// <summary>
         /// Location of the endpoint.
         /// </summary>

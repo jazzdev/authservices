@@ -138,7 +138,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string nameIdPolicy = nameof(nameIdPolicy);
+        const string nameIdPolicy = "nameIdPolicy";
         /// <summary>
         /// NamedId policy element.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string requestedAuthnContext = nameof(requestedAuthnContext);
+        const string requestedAuthnContext = "requestedAuthnContext";
         /// <summary>
         /// RequestedAuthnContext config.
         /// </summary>
@@ -285,7 +285,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string serviceCertificates = nameof(serviceCertificates);
+        const string serviceCertificates = "serviceCertificates";
         /// <summary>
         /// Certificates used by the service provider for signing and/or decryption.
         /// </summary>
@@ -299,7 +299,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string authenticateRequestSigningBehavior = nameof(authenticateRequestSigningBehavior);
+        const string authenticateRequestSigningBehavior = "authenticateRequestSigningBehavior";
         /// <summary>
         /// Signing behavior for created AuthnRequests.
         /// </summary>
@@ -316,7 +316,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string validateCertificates = nameof(validateCertificates);
+        const string validateCertificates = "validateCertificates";
         /// <summary>
         /// Validate certificates when validating signatures? Normally not a
         /// good idea as SAML2 deployments typically exchange certificates
@@ -336,7 +336,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string compatibility = nameof(compatibility);
+        const string compatibility = "compatibility";
 
         /// <summary>
         /// Compatibility settings. Can be used to make AuthServices accept

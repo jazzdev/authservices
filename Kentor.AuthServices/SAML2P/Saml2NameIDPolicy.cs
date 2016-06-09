@@ -21,11 +21,11 @@
         /// <summary>
         /// Value of AllowCreate attribute. Set to null to omit.
         /// </summary>
-        public bool? AllowCreate { get; }
+        public bool? AllowCreate { get; private set; }
 
         /// <summary>
         /// The NameId format.
         /// </summary>
-        public NameIdFormat Format { get; }
+        public NameIdFormat Format { get; private set; }
     }
 }

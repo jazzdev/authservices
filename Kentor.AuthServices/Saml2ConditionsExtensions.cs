@@ -23,13 +23,15 @@ namespace Kentor.AuthServices
         {
             if(conditions == null)
             {
-                throw new ArgumentNullException(nameof(conditions));
+                throw new ArgumentNullException("conditions");
             }
 
             var xml = new XElement(Saml2Namespaces.Saml2 + "Conditions");
 
-            xml.AddAttributeIfNotNullOrEmpty("NotOnOrAfter",
-                    conditions.NotOnOrAfter?.ToSaml2DateTimeString());
+            if (conditions.NotOnOrAfter == null)
+                xml.AddAttributeIfNotNullOrEmpty("NotOnOrAfter", null);
+            else
+                xml.AddAttributeIfNotNullOrEmpty("NotOnOrAfter", conditions.NotOnOrAfter.Value.ToSaml2DateTimeString());
 
             foreach(var ar in conditions.AudienceRestrictions)
             {

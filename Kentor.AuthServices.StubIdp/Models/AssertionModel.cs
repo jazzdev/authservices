@@ -89,7 +89,12 @@ namespace Kentor.AuthServices.StubIdp.Models
         [Display(Name = "Incoming AuthnRequest")]
         public string AuthnRequestXml { get; set; }
 
-        public Saml2BindingType ResponseBinding { get; set; } = Saml2BindingType.HttpPost;
+        public Saml2BindingType ResponseBinding { get; set; }
+
+        public AssertionModel()
+        {
+            ResponseBinding = Saml2BindingType.HttpPost;
+        }
 
         [Display(Name = "Session Index")]
         public string SessionIndex { get; set; }

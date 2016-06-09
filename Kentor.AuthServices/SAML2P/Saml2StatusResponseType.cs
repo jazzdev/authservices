@@ -17,6 +17,9 @@ namespace Kentor.AuthServices.Saml2P
         protected Saml2StatusResponseType(Saml2StatusCode status)
         {
             Status = status;
+            MessageName = "SAMLResponse";
+            Id = new Saml2Id();
+            IssueInstant = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace Kentor.AuthServices.Saml2P
         /// The name of the message to use in a query string or form input
         /// field. Typically "SAMLRequest" or "SAMLResponse".
         /// </summary>
-        public string MessageName { get; } = "SAMLResponse";
+        public string MessageName { get; private set; }
 
         /// <summary>
         /// RelayState attached to the message.
@@ -58,17 +61,17 @@ namespace Kentor.AuthServices.Saml2P
         /// <summary>
         /// Status code of the message.
         /// </summary>
-        public Saml2StatusCode Status { get; }
+        public Saml2StatusCode Status { get; private set; }
 
         /// <summary>
         /// Id of the message.
         /// </summary>
-        public Saml2Id Id { get; } = new Saml2Id();
+        public Saml2Id Id { get; private set; }
 
         /// <summary>
         /// Issue instant.
         /// </summary>
-        public DateTime IssueInstant { get; } = DateTime.UtcNow;
+        public DateTime IssueInstant { get; private set; }
 
         /// <summary>
         /// Serializes the message into wellformed Xml.

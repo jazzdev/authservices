@@ -38,7 +38,7 @@ namespace Kentor.AuthServices.Configuration
         {
             if (configSection == null)
             {
-                throw new ArgumentNullException(nameof(configSection));
+                throw new ArgumentNullException("configSection");
             }
             systemIdentityModelIdentityConfiguration = new IdentityConfiguration(true);
 
@@ -156,7 +156,7 @@ namespace Kentor.AuthServices.Configuration
             {
                 if(value == null)
                 {
-                    throw new ArgumentNullException(nameof(value));
+                    throw new ArgumentNullException("value");
                 }
 
                 value = value.TrimEnd('/');

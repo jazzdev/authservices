@@ -41,7 +41,7 @@ namespace Kentor.AuthServices.HttpModule
         {
             if (requestBase == null)
             {
-                throw new ArgumentNullException(nameof(requestBase));
+                throw new ArgumentNullException("requestBase");
             }
 
             var cookies = ignoreCookies

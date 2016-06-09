@@ -33,18 +33,18 @@ namespace Kentor.AuthServices.WebSso
         /// <summary>
         /// The data payload.
         /// </summary>
-        public XmlElement Data { get; }
+        public XmlElement Data { get; private set; }
 
         /// <summary>
         /// The associated relay state, if any. Otherwise null.
         /// </summary>
-        public string RelayState { get; }
+        public string RelayState { get; private set; }
 
         /// <summary>
         /// Trust level indicating how much the message contents can be
         /// trusted.
         /// </summary>
-        public TrustLevel TrustLevel { get; }
+        public TrustLevel TrustLevel { get; private set; }
     }
 
     /// <summary>
@@ -164,7 +164,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(uri == null)
             {
-                throw new ArgumentNullException(nameof(uri));
+                throw new ArgumentNullException("uri");
             }
 
             Saml2BindingType bindingType;

@@ -27,7 +27,7 @@ namespace Kentor.AuthServices
         {
             if (serviceCertElement == null)
             {
-                throw new ArgumentNullException(nameof(serviceCertElement));
+                throw new ArgumentNullException("serviceCertElement");
             }
             Use = serviceCertElement.Use;
             Status = serviceCertElement.Status;

@@ -26,7 +26,7 @@ namespace Kentor.AuthServices.Configuration
         {
             if(configElement == null)
             {
-                throw new ArgumentNullException(nameof(configElement));
+                throw new ArgumentNullException("configElement");
             }
 
             UnpackEntitiesDescriptorInIdentityProviderMetadata =

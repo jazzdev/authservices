@@ -23,7 +23,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if (xml == null)
             {
-                throw new ArgumentNullException(nameof(xml));
+                throw new ArgumentNullException("xml");
             }
 
             Status = StatusCodeHelper.FromString(
@@ -61,6 +61,6 @@ namespace Kentor.AuthServices.Saml2P
         /// <summary>
         /// Status code of the Artifact response.
         /// </summary>
-        public Saml2StatusCode Status { get; }
+        public Saml2StatusCode Status { get; private set; }
     }
 }

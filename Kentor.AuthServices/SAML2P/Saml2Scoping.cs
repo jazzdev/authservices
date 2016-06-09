@@ -19,7 +19,13 @@ namespace Kentor.AuthServices.Saml2P
         /// Gets advisory list of identity providers and associated information 
         /// that the requester deems acceptable to respond to the request.
         /// </summary>
-        public IList<Saml2IdpEntry> IdPEntries { get; } = new List<Saml2IdpEntry>();
+        public IList<Saml2IdpEntry> IdPEntries { get; private set; }
+
+        public Saml2Scoping()
+        {
+            this.IdPEntries = new List<Saml2IdpEntry>();
+            this.RequesterIds = new List<EntityId>();
+        }
 
         /// <summary>
         /// Fluent config helper that adds a <see cref="Saml2IdpEntry"/> to the 
@@ -63,7 +69,7 @@ namespace Kentor.AuthServices.Saml2P
         /// requester is acting. Used to communicate the chain of requesters
         /// when proxying occurs.
         /// </summary>
-        public IList<EntityId> RequesterIds { get; } = new List<EntityId>();
+        public IList<EntityId> RequesterIds { get; private set;  }
 
         /// <summary>
         /// Fluent config helper that adds a requester id to the

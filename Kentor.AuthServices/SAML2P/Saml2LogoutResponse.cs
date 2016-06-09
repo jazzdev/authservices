@@ -45,7 +45,7 @@ namespace Kentor.AuthServices.Saml2P
                 .AddAttribute("Version", "2.0")
                 .AddAttribute("IssueInstant", IssueInstant.ToSaml2DateTimeString())
                 .AddAttributeIfNotNull("InResponseTo", InResponseTo)
-                .AddAttributeIfNotNull("Destination", DestinationUrl?.OriginalString)
+              .AddAttributeIfNotNull("Destination", DestinationUrl==null?null:DestinationUrl.OriginalString)
                 .If(Issuer != null, x => x.AddElement("Issuer", Saml2Namespaces.Saml2Uri, Issuer.Id))
                 .StartElement("Status", Saml2Namespaces.Saml2PUri)
                     .StartElement("StatusCode", Saml2Namespaces.Saml2PUri)
@@ -61,7 +61,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if(xml == null)
             {
-                throw new ArgumentNullException(nameof(xml));
+                throw new ArgumentNullException("xml");
             }
 
             var status = StatusCodeHelper.FromString(

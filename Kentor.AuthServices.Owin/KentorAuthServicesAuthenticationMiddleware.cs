@@ -34,7 +34,7 @@ namespace Kentor.AuthServices.Owin
         {
             if(app == null)
             {
-                throw new ArgumentNullException(nameof(app));
+                throw new ArgumentNullException("app");
             }
 
             if (options.SPOptions == null)

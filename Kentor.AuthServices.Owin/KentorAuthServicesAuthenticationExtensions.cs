@@ -24,7 +24,7 @@ namespace Owin
         {
             if (app == null)
             {
-                throw new ArgumentNullException(nameof(app));
+                throw new ArgumentNullException("app");
             }
 
             app.Use(typeof(KentorAuthServicesAuthenticationMiddleware), app, options);

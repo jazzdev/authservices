@@ -24,7 +24,7 @@ namespace Kentor.AuthServices.Configuration
             return !AllowChange;
         }
 
-        const string classRef = nameof(classRef);
+        const string classRef = "classRef";
         /// <summary>
         /// AuthnContextClassRef. Either a full URL or the last word of a
         /// standard URL.
@@ -42,7 +42,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string comparison = nameof(comparison);
+        const string comparison = "comparison";
         /// <summary>
         /// Comparison mode of AuthnContextClassRef
         /// </summary>

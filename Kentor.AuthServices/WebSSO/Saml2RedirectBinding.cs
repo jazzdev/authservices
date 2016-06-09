@@ -27,7 +27,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (message == null)
             {
-                throw new ArgumentNullException(nameof(message));
+                throw new ArgumentNullException("message");
             }
 
             var serializedRequest = Serialize(message.ToXml());
@@ -74,7 +74,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             var payload = Convert.FromBase64String(
@@ -119,7 +119,8 @@ namespace Kentor.AuthServices.WebSso
                 return TrustLevel.None;
             }
 
-            var issuer = documentElement["Issuer", Saml2Namespaces.Saml2Name]?.InnerText;
+            var it = documentElement["Issuer", Saml2Namespaces.Saml2Name];
+            var issuer = it==null?null:it.InnerText;
             
             if(string.IsNullOrEmpty(issuer))
             {
@@ -212,7 +213,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             return (request.QueryString["SAMLRequest"].Any()

@@ -279,7 +279,7 @@ namespace Kentor.AuthServices
         {
             if (authServicesUrls == null)
             {
-                throw new ArgumentNullException(nameof(authServicesUrls));
+                throw new ArgumentNullException("authServicesUrls");
             }
 
             var authnRequest = new Saml2AuthenticationRequest()
@@ -369,7 +369,7 @@ namespace Kentor.AuthServices
         {
             if (metadata == null)
             {
-                throw new ArgumentNullException(nameof(metadata));
+                throw new ArgumentNullException("metadata");
             }
 
             lock (metadataLoadLock)
@@ -485,7 +485,7 @@ namespace Kentor.AuthServices
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Logout")]
         public Saml2LogoutRequest CreateLogoutRequest(ClaimsPrincipal user)
         {
-            if (user == null) throw new ArgumentNullException(nameof(user));
+            if (user == null) throw new ArgumentNullException("user");
             if (spOptions.SigningServiceCertificate == null)
             {
                 throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,

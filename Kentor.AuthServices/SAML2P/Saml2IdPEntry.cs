@@ -45,7 +45,7 @@ namespace Kentor.AuthServices.Saml2P
             {
                 if(value == null)
                 {
-                    throw new ArgumentNullException(nameof(value));
+                    throw new ArgumentNullException("value");
                 }
                 providerId = value;
             }
@@ -60,7 +60,7 @@ namespace Kentor.AuthServices.Saml2P
 
             idpEntryElement.AddAttributeIfNotNullOrEmpty("ProviderID", ProviderId.Id);
             idpEntryElement.AddAttributeIfNotNullOrEmpty("Name", Name);
-            idpEntryElement.AddAttributeIfNotNullOrEmpty("Loc", Location?.OriginalString);
+            idpEntryElement.AddAttributeIfNotNullOrEmpty("Loc", Location==null?null:Location.OriginalString);
 
             return idpEntryElement;
         }

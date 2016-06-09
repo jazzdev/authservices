@@ -28,12 +28,12 @@ namespace Kentor.AuthServices.HttpModule
         {
             if (commandResult == null)
             {
-                throw new ArgumentNullException(nameof(commandResult));
+                throw new ArgumentNullException("commandResult");
             }
 
             if (response == null)
             {
-                throw new ArgumentNullException(nameof(response));
+                throw new ArgumentNullException("response");
             }
 
             response.Cache.SetCacheability((HttpCacheability)commandResult.Cacheability);
@@ -72,12 +72,12 @@ namespace Kentor.AuthServices.HttpModule
         {
             if(commandResult == null)
             {
-                throw new ArgumentNullException(nameof(commandResult));
+                throw new ArgumentNullException("commandResult");
             }
 
             if(response == null)
             {
-                throw new ArgumentNullException(nameof(response));
+                throw new ArgumentNullException("response");
             }
 
             if (!string.IsNullOrEmpty(commandResult.SetCookieName))
@@ -112,7 +112,7 @@ namespace Kentor.AuthServices.HttpModule
         {
             if (commandResult == null)
             {
-                throw new ArgumentNullException(nameof(commandResult));
+                throw new ArgumentNullException("commandResult");
             }
 
             // Ignore this if we're not running inside IIS, e.g. in unit tests.

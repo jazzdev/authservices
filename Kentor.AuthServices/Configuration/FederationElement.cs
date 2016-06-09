@@ -12,7 +12,7 @@ namespace Kentor.AuthServices.Configuration
     /// </summary>
     public class FederationElement : ConfigurationElement
     {
-        private const string metadataLocation = nameof(metadataLocation);
+        private const string metadataLocation = "metadataLocation";
         /// <summary>
         /// Location (url, local path or app relative path such as ~/App_Data)
         /// where metadata is located.

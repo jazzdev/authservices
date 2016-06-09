@@ -22,12 +22,12 @@ namespace Kentor.AuthServices.Internal
         {
             if(x == null)
             {
-                throw new ArgumentNullException(nameof(x));
+                throw new ArgumentNullException("x");
             }
 
             if(y == null)
             {
-                throw new ArgumentNullException(nameof(y));
+                throw new ArgumentNullException("y");
             }
 
             return x.Id == y.Id;
@@ -37,7 +37,7 @@ namespace Kentor.AuthServices.Internal
         {
             if(obj == null)
             {
-                throw new ArgumentNullException(nameof(obj));
+                throw new ArgumentNullException("obj");
             }
             if(obj.Id == null)
             {

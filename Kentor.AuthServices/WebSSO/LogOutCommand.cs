@@ -33,7 +33,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             var returnUrl = request.QueryString["ReturnUrl"].SingleOrDefault();
@@ -57,12 +57,12 @@ namespace Kentor.AuthServices.WebSso
         {
             if (request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             if (options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
 
             CommandResult commandResult;
@@ -95,7 +95,8 @@ namespace Kentor.AuthServices.WebSso
         {
             if (unbindResult.TrustLevel < TrustLevel.Signature)
             {
-                var issuer = unbindResult.Data["Issuer", Saml2Namespaces.Saml2Name]?.InnerText;
+              var it = unbindResult.Data["Issuer", Saml2Namespaces.Saml2Name];
+              var issuer = it==null?null:it.InnerText;
 
                 if(issuer == null)
                 {
@@ -119,7 +120,8 @@ namespace Kentor.AuthServices.WebSso
             Claim sessionIndexClaim = null;
             if (request.User != null)
             {
-                idpEntityId = request.User.FindFirst(AuthServicesClaimTypes.LogoutNameIdentifier)?.Issuer;
+              var id = request.User.FindFirst(AuthServicesClaimTypes.LogoutNameIdentifier);
+              idpEntityId = id==null?null:id.Issuer;
                 sessionIndexClaim = request.User.FindFirst(AuthServicesClaimTypes.SessionIndex);
             }
 

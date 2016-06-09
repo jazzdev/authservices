@@ -62,7 +62,7 @@ namespace Kentor.AuthServices.Configuration
         /// Options for the service provider's behaviour; i.e. everything except
         /// the idp and federation list.
         /// </summary>
-        public SPOptions SPOptions { get; }
+        public SPOptions SPOptions { get; private set; }
 
         private readonly IdentityProviderDictionary identityProviders = new IdentityProviderDictionary();
 

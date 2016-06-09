@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Metadata;
 using Kentor.AuthServices.Configuration;
 using System.Xml;
+using System.Linq.Expressions;
 
 namespace Kentor.AuthServices.WebSso
 {
@@ -17,7 +18,16 @@ namespace Kentor.AuthServices.WebSso
     /// </summary>
     public class Saml2ArtifactBinding : Saml2Binding
     {
-        internal Saml2ArtifactBinding() { }
+        public static String nameof<T>(Expression<Func<T>> name)
+        {
+            MemberExpression expressionBody = (MemberExpression)name.Body;
+            return expressionBody.Member.Name;
+        }
+
+        internal Saml2ArtifactBinding()
+        {
+            PendingMessages = new ConcurrentDictionary<byte[], ISaml2Message>(new ByteArrayEqualityComparer());
+        }
 
         /// <summary>
         /// 
@@ -28,7 +38,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException(nameof(() => request));
             }
 
             return (request.HttpMethod == "GET" && request.QueryString.Contains("SAMLart"))
@@ -47,7 +57,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException(nameof(() => request));
             }
 
             string relayState;
@@ -140,7 +150,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(issuer == null)
             {
-                throw new ArgumentNullException(nameof(issuer));
+                throw new ArgumentNullException(nameof(() => issuer));
             }
 
             var artifact = new byte[44];
@@ -166,7 +176,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(message == null)
             {
-                throw new ArgumentNullException(nameof(message));
+                throw new ArgumentNullException(nameof(() => message));
             }
 
             var artifact = CreateArtifact(message.Issuer, 0);
@@ -189,8 +199,7 @@ namespace Kentor.AuthServices.WebSso
         /// <summary>
         /// Pending messages where the artifact has been sent.
         /// </summary>
-        public static ConcurrentDictionary<byte[], ISaml2Message> PendingMessages { get; } =
-            new ConcurrentDictionary<byte[], ISaml2Message>(new ByteArrayEqualityComparer());
+        public static ConcurrentDictionary<byte[], ISaml2Message> PendingMessages { get; private set; }
 
         private class ByteArrayEqualityComparer : IEqualityComparer<byte[]>
         {

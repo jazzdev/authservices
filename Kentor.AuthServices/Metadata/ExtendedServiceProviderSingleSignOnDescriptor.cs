@@ -30,7 +30,12 @@ namespace Kentor.AuthServices.Metadata
         /// <summary>
         /// Extensions node in metadata.
         /// </summary>
-        public ServiceProviderSingleSignOnDescriptorExtensions Extensions { get; }
-            = new ServiceProviderSingleSignOnDescriptorExtensions();
+        public ServiceProviderSingleSignOnDescriptorExtensions Extensions { get; private set; }
+          
+
+        public ExtendedServiceProviderSingleSignOnDescriptor()
+        {
+            this.Extensions = new ServiceProviderSingleSignOnDescriptorExtensions();
+        }
     }
 }

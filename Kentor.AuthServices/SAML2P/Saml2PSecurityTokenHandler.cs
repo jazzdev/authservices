@@ -31,7 +31,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if (spOptions == null)
             {
-                throw new ArgumentNullException(nameof(spOptions));
+                throw new ArgumentNullException("spOptions");
             }
 
             Configuration = new SecurityTokenHandlerConfiguration

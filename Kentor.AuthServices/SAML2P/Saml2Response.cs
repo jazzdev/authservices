@@ -64,7 +64,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if (xml == null)
             {
-                throw new ArgumentNullException(nameof(xml));
+                throw new ArgumentNullException("xml");
             }
 
             if (xml.LocalName != "Response"
@@ -221,7 +221,7 @@ namespace Kentor.AuthServices.Saml2P
         /// to the signature processing rules of each binding.
         /// </summary>
         [ExcludeFromCodeCoverage]
-        public X509Certificate2 SigningCertificate { get; }
+        public X509Certificate2 SigningCertificate { get; private set; }
 
         private XmlElement xmlElement;
 
@@ -345,12 +345,12 @@ namespace Kentor.AuthServices.Saml2P
         /// <summary>
         /// Issuer (= sender) of the response.
         /// </summary>
-        public EntityId Issuer { get; }
+        public EntityId Issuer { get; private set; }
 
         /// <summary>
         /// The destination of the response message.
         /// </summary>
-        public Uri DestinationUrl { get; }
+        public Uri DestinationUrl { get; private set; }
 
         /// <summary>Gets all assertion element nodes from this response message.</summary>
         /// <value>All assertion element nodes.</value>
@@ -462,7 +462,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if (options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
             if (createClaimsException != null)
             {
@@ -522,6 +522,6 @@ namespace Kentor.AuthServices.Saml2P
         /// <summary>
         /// RelayState attached to the message.
         /// </summary>
-        public string RelayState { get; } = null;
+        public string RelayState { get; private set; }
     }
 }

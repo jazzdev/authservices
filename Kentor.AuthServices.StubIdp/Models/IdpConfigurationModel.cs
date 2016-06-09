@@ -45,15 +45,15 @@ namespace Kentor.AuthServices.StubIdp.Models
             }
             return sb.ToString();
         }
-        public string JsonData { get; }
-        public string ETag { get; }
+        public string JsonData { get; private set; }
+        public string ETag { get; private set; }
 
-        public string DefaultAssertionConsumerServiceUrl { get; }
+        public string DefaultAssertionConsumerServiceUrl { get; private set; }
 
-        public string DefaultAudience { get; }
+        public string DefaultAudience { get; private set; }
 
-        public string IdpDescription { get;}
+        public string IdpDescription { get; private set; }
 
-        public bool HideDetails { get; }
+        public bool HideDetails { get; private set; }
     }
 }

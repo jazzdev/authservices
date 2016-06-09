@@ -20,12 +20,12 @@ namespace Kentor.AuthServices.WebSso
         {
             if(request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             if(options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
 
             var binding = options.Notifications.GetBinding(request);
@@ -38,7 +38,7 @@ namespace Kentor.AuthServices.WebSso
                     unbindResult = binding.Unbind(request, options);
                     options.Notifications.MessageUnbound(unbindResult);
 
-                    var samlResponse = new Saml2Response(unbindResult.Data, request.StoredRequestState?.MessageId);
+                    var samlResponse = new Saml2Response(unbindResult.Data, request.StoredRequestState==null?null:request.StoredRequestState.MessageId);
 
                     var result = ProcessResponse(options, samlResponse, request.StoredRequestState);
                     if(unbindResult.RelayState != null)
@@ -109,9 +109,9 @@ namespace Kentor.AuthServices.WebSso
             return new CommandResult()
             {
                 HttpStatusCode = HttpStatusCode.SeeOther,
-                Location = storedRequestState?.ReturnUrl ?? options.SPOptions.ReturnUrl,
+                  Location = storedRequestState==null?null:storedRequestState.ReturnUrl ?? options.SPOptions.ReturnUrl,
                 Principal = principal,
-                RelayData = storedRequestState?.RelayData
+                  RelayData = storedRequestState==null?null:storedRequestState.RelayData
             };
         }
 

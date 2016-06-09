@@ -52,7 +52,7 @@ namespace Kentor.AuthServices.Metadata
         {
             if (metadataLocation == null)
             {
-                throw new ArgumentNullException(nameof(metadataLocation));
+                throw new ArgumentNullException("metadataLocation");
             }
 
             var result = Load(metadataLocation);
@@ -119,7 +119,7 @@ namespace Kentor.AuthServices.Metadata
         {
             if (metadataLocation == null)
             {
-                throw new ArgumentNullException(nameof(metadataLocation));
+                throw new ArgumentNullException("metadataLocation");
             }
 
             var result = Load(metadataLocation);

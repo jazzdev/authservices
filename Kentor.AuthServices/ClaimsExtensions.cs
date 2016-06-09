@@ -52,7 +52,7 @@ namespace Kentor.AuthServices
                 saml2NameIdentifier.SPNameQualifier = fields[1];
             }
             if (!string.IsNullOrEmpty(fields[2]))
-            {
+        {
                 saml2NameIdentifier.Format = new Uri(fields[2]);
             }
             if (!string.IsNullOrEmpty(fields[3]))
@@ -61,7 +61,7 @@ namespace Kentor.AuthServices
             }
 
             return saml2NameIdentifier;
-        }
+            }
 
         private static Saml2NameIdentifier ProcessNameIdentifier(Claim claim)
         { 

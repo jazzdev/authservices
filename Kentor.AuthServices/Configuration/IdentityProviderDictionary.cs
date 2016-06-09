@@ -36,7 +36,7 @@ namespace Kentor.AuthServices.Configuration
             {
                 if(entityId == null)
                 {
-                    throw new ArgumentNullException(nameof(entityId));
+                    throw new ArgumentNullException("entityId");
                 }
 
                 lock(dictionary)
@@ -70,7 +70,7 @@ namespace Kentor.AuthServices.Configuration
         {
             if(idp == null)
             {
-                throw new ArgumentNullException(nameof(idp));
+                throw new ArgumentNullException("idp");
             }
 
             lock(dictionary)

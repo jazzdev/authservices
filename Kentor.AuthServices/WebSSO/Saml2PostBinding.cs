@@ -15,7 +15,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             return request.HttpMethod == "POST"
@@ -27,7 +27,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             var xmlDoc = new XmlDocument()
@@ -53,7 +53,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(message == null)
             {
-                throw new ArgumentNullException(nameof(message));
+                throw new ArgumentNullException("message");
             }
 
             var xml = message.ToXml();

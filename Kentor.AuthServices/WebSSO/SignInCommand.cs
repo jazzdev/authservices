@@ -29,12 +29,12 @@ namespace Kentor.AuthServices.WebSso
         {
             if (request == null)
             {
-                throw new ArgumentNullException(nameof(request));
+                throw new ArgumentNullException("request");
             }
 
             if (options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
 
             return Run(
@@ -67,7 +67,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
 
             var urls = new AuthServicesUrls(request, options.SPOptions);
@@ -75,7 +75,7 @@ namespace Kentor.AuthServices.WebSso
             IdentityProvider idp = options.Notifications.SelectIdentityProvider(idpEntityId, relayData);
             if (idp == null)
             {
-                if (idpEntityId?.Id == null)
+                if ((idpEntityId==null?null:idpEntityId.Id) == null)
                 {
                     if (options.SPOptions.DiscoveryServiceUrl != null)
                     {

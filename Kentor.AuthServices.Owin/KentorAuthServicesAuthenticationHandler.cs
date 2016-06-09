@@ -155,8 +155,8 @@ namespace Kentor.AuthServices.Owin
         {
             var grant = context.Authentication.AuthenticationResponseGrant;
             var externalIdentity = await context.Authentication.AuthenticateAsync(Options.SignInAsAuthenticationType);
-            var sessionIdClaim = externalIdentity?.Identity.FindFirst(AuthServicesClaimTypes.SessionIndex);
-            var externalLogutNameIdClaim = externalIdentity?.Identity.FindFirst(AuthServicesClaimTypes.LogoutNameIdentifier);
+            var sessionIdClaim = externalIdentity==null?null:externalIdentity.Identity.FindFirst(AuthServicesClaimTypes.SessionIndex);
+            var externalNameIdClaim = externalIdentity == null ? null : externalIdentity.Identity.FindFirst(AuthServicesClaimTypes.LogoutNameIdentifier);
 
             if (grant == null || externalIdentity == null || sessionIdClaim == null || externalLogutNameIdClaim == null)
             {

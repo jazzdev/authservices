@@ -26,7 +26,7 @@ namespace Kentor.AuthServices.HttpModule
         {
             if (context == null)
             {
-                throw new ArgumentNullException(nameof(context));
+                throw new ArgumentNullException("context");
             }
 
             // Run our code post authentication to allow any session authentication

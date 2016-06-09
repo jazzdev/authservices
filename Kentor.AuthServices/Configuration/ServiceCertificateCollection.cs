@@ -20,7 +20,7 @@ namespace Kentor.AuthServices.Configuration
         /// <param name="certificate">Certificate to add.</param>
         public void Add(X509Certificate2 certificate)
         {
-            if (certificate == null) throw new ArgumentNullException(nameof(certificate));
+            if (certificate == null) throw new ArgumentNullException("certificate");
             InsertItem(base.Count, new ServiceCertificate
             {
                 Certificate = certificate
@@ -34,7 +34,7 @@ namespace Kentor.AuthServices.Configuration
         /// <param name="item">Service certificate to add.</param>
         protected override void InsertItem(int index, ServiceCertificate item)
         {
-            if (item == null) throw new ArgumentNullException(nameof(item));
+            if (item == null) throw new ArgumentNullException("item");
 
             if (!item.Certificate.HasPrivateKey)
             {

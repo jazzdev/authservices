@@ -28,7 +28,7 @@ namespace Kentor.AuthServices
         {
             if (config == null)
             {
-                throw new ArgumentNullException(nameof(config));
+                throw new ArgumentNullException("config");
             }
 
             Init(config.MetadataLocation, config.AllowUnsolicitedAuthnResponse, options);

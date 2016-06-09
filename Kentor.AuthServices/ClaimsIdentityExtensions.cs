@@ -56,23 +56,23 @@ namespace Kentor.AuthServices
         {
             if (identity == null)
             {
-                throw new ArgumentNullException(nameof(identity));
+                throw new ArgumentNullException("identity");
             }
 
             if (issuer == null)
             {
-                throw new ArgumentNullException(nameof(issuer));
+                throw new ArgumentNullException("issuer");
             }
 
             var assertion = new Saml2Assertion(new Saml2NameIdentifier(issuer.Id));
 
+            var it = identity.Claims.SingleOrDefault(c => c.Type == AuthServicesClaimTypes.SessionIndex);
             assertion.Statements.Add(
                 new Saml2AuthenticationStatement(
                     new Saml2AuthenticationContext(
                         new Uri("urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified")))
                 {
-                    SessionIndex = identity.Claims.SingleOrDefault(
-                        c => c.Type == AuthServicesClaimTypes.SessionIndex)?.Value
+                    SessionIndex = it==null?null:it.Value
                 });
 
             var attributeClaims = identity.Claims.Where(
@@ -128,7 +128,7 @@ namespace Kentor.AuthServices
         {
             if(identity == null)
             {
-                throw new ArgumentNullException(nameof(identity));
+                throw new ArgumentNullException("identity");
             }
 
             return identity.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier)

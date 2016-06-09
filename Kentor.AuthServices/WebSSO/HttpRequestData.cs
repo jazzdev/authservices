@@ -147,7 +147,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if (data == null)
             {
-                throw new ArgumentNullException(nameof(data));
+                throw new ArgumentNullException("data");
             }
 
             return Convert.ToBase64String(data)

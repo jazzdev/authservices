@@ -41,7 +41,7 @@ namespace Kentor.AuthServices.Saml2P
         {
             if(xml == null)
             {
-                throw new ArgumentNullException(nameof(xml));
+                throw new ArgumentNullException("xml");
             }
 
             var request = new Saml2LogoutRequest()

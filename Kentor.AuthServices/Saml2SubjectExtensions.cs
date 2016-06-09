@@ -18,7 +18,7 @@ namespace Kentor.AuthServices
         {
             if (subject == null)
             {
-                throw new ArgumentNullException(nameof(subject));
+                throw new ArgumentNullException("subject");
             }
 
             var element = new XElement(Saml2Namespaces.Saml2 + "Subject",
@@ -50,7 +50,7 @@ namespace Kentor.AuthServices
         {
             if (subjectConfirmation == null)
             {
-                throw new ArgumentNullException(nameof(subjectConfirmation));
+                throw new ArgumentNullException("subjectConfirmation");
             }
 
             var element = new XElement(Saml2Namespaces.Saml2 + "SubjectConfirmation",
@@ -74,7 +74,7 @@ namespace Kentor.AuthServices
         {
             if (subjectConfirmationData == null)
             {
-                throw new ArgumentNullException(nameof(subjectConfirmationData));
+                throw new ArgumentNullException("subjectConfirmationData");
             }
 
             var element = new XElement(Saml2Namespaces.Saml2 + "SubjectConfirmationData");

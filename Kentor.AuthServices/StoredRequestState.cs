@@ -36,23 +36,23 @@ namespace Kentor.AuthServices
         /// <summary>
         /// The IDP the request was sent to
         /// </summary>
-        public EntityId Idp { get; }
+        public EntityId Idp { get; private set; }
 
         /// <summary>
         /// The Url to redirect back to after a succesful login
         /// </summary>
-        public Uri ReturnUrl { get; }
+        public Uri ReturnUrl { get; private set; }
 
         /// <summary>
         /// Message id of the originating Saml message. Should match InResponseTo
         /// in the response.
         /// </summary>
-        public Saml2Id MessageId { get; }
+        public Saml2Id MessageId { get; private set; }
 
         /// <summary>
         /// Aux data that need to be preserved across the authentication call.
         /// </summary>
-        public IDictionary<string,string> RelayData { get; }
+        public IDictionary<string, string> RelayData { get; private set; }
 
         /// <summary>
         /// Get a serialized representation of the data.
@@ -64,9 +64,9 @@ namespace Kentor.AuthServices
             using (var ms = new MemoryStream())
             using (var w = new BinaryWriter(ms, Encoding.UTF8, true))
             {
-                w.Write(Idp?.Id ?? "");
-                w.Write(ReturnUrl?.OriginalString ?? "");
-                w.Write(MessageId?.Value ?? "");
+              w.Write(Idp==null?null:Idp.Id ?? "");
+              w.Write((ReturnUrl==null?null:ReturnUrl.OriginalString) ?? "");
+              w.Write((MessageId==null?null:MessageId.Value) ?? "");
                 var hasRelayData = RelayData != null;
                 w.Write(hasRelayData);
                 if (hasRelayData)

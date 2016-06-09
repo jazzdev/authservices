@@ -18,7 +18,7 @@ namespace Kentor.AuthServices.WebSso
         {
             if(options == null)
             {
-                throw new ArgumentNullException(nameof(options));
+                throw new ArgumentNullException("options");
             }
 
             var urls = new AuthServicesUrls(request, options.SPOptions);

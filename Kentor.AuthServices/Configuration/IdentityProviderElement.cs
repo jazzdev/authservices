@@ -41,7 +41,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string signOnUrl = nameof(signOnUrl);
+        const string signOnUrl = "signOnUrl";
         /// <summary>
         /// Destination url to send sign in requests to.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string logoutUrl = nameof(logoutUrl);
+        const string logoutUrl = "logoutUrl";
         /// <summary>
         /// Single logout url endpoint of Idp.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string metadataLocation = nameof(metadataLocation);
+        const string metadataLocation = "(metadataLocation";
 
         /// <summary>
         /// Metadata location url to be used for automatic downloading of metadata.
@@ -155,7 +155,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string artifactResolutionServices = nameof(artifactResolutionServices);
+        const string artifactResolutionServices = "artifactResolutionServices";
         /// <summary>
         /// Artifact Resolution endpoints for the identity provider.
         /// </summary>
@@ -169,7 +169,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string wantAuthnRequestsSigned = nameof(wantAuthnRequestsSigned);
+        const string wantAuthnRequestsSigned = "wantAuthnRequestsSigned";
         /// <summary>
         /// Does this Idp want the AuthnRequests to be signed?
         /// </summary>
@@ -182,7 +182,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string disableOutboundLogoutRequests = nameof(disableOutboundLogoutRequests);
+        const string disableOutboundLogoutRequests = "disableOutboundLogoutRequests";
 
         /// <summary>
         /// Disable outbound logout requests to this idp, even though

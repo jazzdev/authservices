@@ -32,7 +32,7 @@ namespace Kentor.AuthServices.Internal
         {
             if (virtualPath == null)
             {
-                throw new ArgumentNullException(nameof(virtualPath));
+                throw new ArgumentNullException("virtualPath");
             }
 
             if (!IsWebRootRelative(virtualPath))
@@ -58,7 +58,7 @@ namespace Kentor.AuthServices.Internal
         {
             if (virtualPath == null)
             {
-                throw new ArgumentNullException(nameof(virtualPath));
+                throw new ArgumentNullException("virtualPath");
             }
             if (virtualPath.Length == 0)
             {

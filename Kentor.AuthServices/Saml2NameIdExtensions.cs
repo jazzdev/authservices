@@ -18,7 +18,7 @@ namespace Kentor.AuthServices
         {
             if(nameIdentifier == null)
             {
-                throw new ArgumentNullException(nameof(nameIdentifier));
+                throw new ArgumentNullException("nameIdentifier");
             }
 
             var nameIdElement = new XElement(Saml2Namespaces.Saml2 + "NameID",

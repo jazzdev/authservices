@@ -31,7 +31,7 @@ namespace Kentor.AuthServices.Mvc
         {
             if (commandResult == null)
             {
-                throw new ArgumentNullException(nameof(commandResult));
+                throw new ArgumentNullException("commandResult");
             }
 
             switch (commandResult.HttpStatusCode)

@@ -58,12 +58,12 @@ namespace Kentor.AuthServices
         {
             if(attributes == null)
             {
-                throw new ArgumentNullException(nameof(attributes));
+                throw new ArgumentNullException("attributes");
             }
 
             if(attributeName == null)
             {
-                throw new ArgumentNullException(nameof(attributeName));
+                throw new ArgumentNullException("attributeName");
             }
 
             var attribute = attributes[attributeName];
@@ -81,17 +81,17 @@ namespace Kentor.AuthServices
         {
             if(xmlElement == null)
             {
-                throw new ArgumentNullException(nameof(xmlElement));
+                throw new ArgumentNullException("xmlElement");
             }
 
             if(name == null)
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentNullException("name");
             }
 
             if(ns == null)
             {
-                throw new ArgumentNullException(nameof(ns));
+                throw new ArgumentNullException("ns");
             }
 
             var toRemove = xmlElement[name, ns];
@@ -109,7 +109,7 @@ namespace Kentor.AuthServices
         {
             if(xmlDocument == null)
             {
-                throw new ArgumentNullException(nameof(xmlDocument));
+                throw new ArgumentNullException("xmlDocument");
             }
 
             xmlDocument.DocumentElement.Sign(cert, includeKeyInfo);
@@ -126,12 +126,12 @@ namespace Kentor.AuthServices
         {
             if (xmlElement == null)
             {
-                throw new ArgumentNullException(nameof(xmlElement));
+                throw new ArgumentNullException("xmlElement");
             }
 
             if (cert == null)
             {
-                throw new ArgumentNullException(nameof(cert));
+                throw new ArgumentNullException("cert");
             }
 
             var signedXml = new SignedXml(xmlElement.OwnerDocument);
@@ -176,7 +176,7 @@ namespace Kentor.AuthServices
         {
             if (certificate == null)
             {
-                throw new ArgumentNullException(nameof(certificate));
+                throw new ArgumentNullException("certificate");
             }
 
             return xmlElement.IsSignedByAny(
@@ -200,7 +200,7 @@ namespace Kentor.AuthServices
         {
             if (xmlElement == null)
             {
-                throw new ArgumentNullException(nameof(xmlElement));
+                throw new ArgumentNullException("xmlElement");
             }
 
             var signedXml = new SignedXml(xmlElement);
@@ -240,8 +240,9 @@ namespace Kentor.AuthServices
                         return;
                     }
                 }
-                var containedKey = signedXml.Signature.KeyInfo.OfType<KeyInfoX509Data>()
-                    .SingleOrDefault()?.Certificates.OfType<X509Certificate2>()
+                var it = signedXml.Signature.KeyInfo.OfType<KeyInfoX509Data>()
+                  .SingleOrDefault();
+                var containedKey = it==null?null:it.Certificates.OfType<X509Certificate2>()
                     .SingleOrDefault();
 
                 if (containedKey != null && signedXml.CheckSignature(containedKey, true))
@@ -468,7 +469,7 @@ namespace Kentor.AuthServices
         {
             if(xml == null)
             {
-                throw new ArgumentNullException(nameof(xml));
+                throw new ArgumentNullException("xml");
             }
 
             // Based on http://stackoverflow.com/a/1123731/280222

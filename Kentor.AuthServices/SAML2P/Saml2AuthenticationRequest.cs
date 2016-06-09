@@ -153,7 +153,7 @@ namespace Kentor.AuthServices.Saml2P
             if (node != null)
             {
                 var fullFormat = node.Attributes["Format"].GetValueIfNotNull();
-                var format = fullFormat?.Split(':').LastOrDefault();
+                var format = fullFormat==null?null:fullFormat.Split(':').LastOrDefault();
                 NameIdFormat nameIdFormat = NameIdFormat.NotConfigured;
                 if (format != null)
                 {

@@ -39,7 +39,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string cacheDuration = nameof(cacheDuration);
+        const string cacheDuration = "cacheDuration";
         /// <summary>
         /// Optional attribute that describes for how long anyone may cache the metadata
         /// presented by the service provider. Defaults to 1 hour.
@@ -53,7 +53,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string validDuration = nameof(validDuration);
+        const string validDuration = "validDuration";
         /// <summary>
         /// How long after generation should the metadata be valid?
         /// </summary>
@@ -93,7 +93,7 @@ namespace Kentor.AuthServices.Configuration
             }
         }
 
-        const string wantAssertionsSigned = nameof(wantAssertionsSigned);
+        const string wantAssertionsSigned = "wantAssertionsSigned";
         /// <summary>
         /// Metadata flag that we want assertions to be signed.
         /// </summary>

@@ -11,7 +11,7 @@ namespace Kentor.AuthServices.Internal
     {
         internal static void Encrypt(this XmlElement elementToEncrypt, bool useOaep, X509Certificate2 certificate)
         {
-            if (certificate == null) throw new ArgumentNullException(nameof(certificate));
+            if (certificate == null) throw new ArgumentNullException("certificate");
 
             var encryptedData = new EncryptedData
             {

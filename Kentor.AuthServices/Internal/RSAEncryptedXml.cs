@@ -22,7 +22,7 @@ namespace Kentor.AuthServices.Internal
         {
             if (encryptedKey == null)
             {
-                throw new ArgumentNullException(nameof(encryptedKey));
+                throw new ArgumentNullException("encryptedKey");
             }
 
             if (encryptedKey.CipherData.CipherValue == null)
